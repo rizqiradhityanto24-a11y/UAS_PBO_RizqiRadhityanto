@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 23, 2026 at 01:26 AM
+-- Generation Time: Jun 23, 2026 at 01:39 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.30
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `karyawan`
+-- Table structure for table `tabel_karyawan`
 --
 
-CREATE TABLE `karyawan` (
+CREATE TABLE `tabel_karyawan` (
   `id_karyawan` int NOT NULL,
   `nama_karyawan` varchar(100) NOT NULL,
   `hari_kerja_masuk` int NOT NULL DEFAULT '0',
@@ -39,10 +39,10 @@ CREATE TABLE `karyawan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `karyawan`
+-- Dumping data for table `tabel_karyawan`
 --
 
-INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `hari_kerja_masuk`, `gaji_dasar_perhari`, `jenis_karyawan`, `durasi_kontrak_bulan`, `uang_saku_bulanan`, `sertifikat_kampus_merdeka`) VALUES
+INSERT INTO `tabel_karyawan` (`id_karyawan`, `nama_karyawan`, `hari_kerja_masuk`, `gaji_dasar_perhari`, `jenis_karyawan`, `durasi_kontrak_bulan`, `uang_saku_bulanan`, `sertifikat_kampus_merdeka`) VALUES
 (1, 'Budi Santoso', 22, 150000.00, 'tetap', NULL, NULL, NULL),
 (2, 'Siti Aminah', 21, 160000.00, 'tetap', NULL, NULL, NULL),
 (3, 'Dewi Lestari', 23, 175000.00, 'tetap', NULL, NULL, NULL),
@@ -69,9 +69,9 @@ INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `hari_kerja_masuk`, `gaj
 --
 
 --
--- Indexes for table `karyawan`
+-- Indexes for table `tabel_karyawan`
 --
-ALTER TABLE `karyawan`
+ALTER TABLE `tabel_karyawan`
   ADD PRIMARY KEY (`id_karyawan`);
 
 --
@@ -79,9 +79,9 @@ ALTER TABLE `karyawan`
 --
 
 --
--- AUTO_INCREMENT for table `karyawan`
+-- AUTO_INCREMENT for table `tabel_karyawan`
 --
-ALTER TABLE `karyawan`
+ALTER TABLE `tabel_karyawan`
   MODIFY `id_karyawan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 

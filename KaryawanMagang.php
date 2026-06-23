@@ -3,7 +3,7 @@
 require_once 'Karyawan.php';
 
 class KaryawanMagang extends Karyawan {
-    private $uangSakuBulanan; // Tetap ada sebagai properti, namun rumus mengacu pada plafon harian sesuai instruksi
+    private $uangSakuBulanan;
     private $sertifikatKampusMerdeka;
 
     public function __construct($id, $nama, $dept, $hariMasuk, $gajiDasar, $uangSaku, $sertifikat) {
@@ -12,18 +12,17 @@ class KaryawanMagang extends Karyawan {
         $this->sertifikatKampusMerdeka = $sertifikat;
     }
 
-    // OVERRIDING: Menghitung gaji magang dengan potongan 20% (dikali 0.80)
     public function hitungGajiBersih() {
         return $this->hariKerjaMasuk * $this->gajiDasarPerhari * 0.80;
     }
 
     public function tampilkanProfilKaryawan() {
-        echo "=== PROFIL KARYAWAN MAGANG ===<br>";
-        echo "ID: " . $this->id_karyawan . "<br>";
-        echo "Nama: " . $this->nama_karyawan . "<br>";
-        echo "Departemen: " . $this->departemen . "<br>";
-        echo "Sertifikat Kampus Merdeka: " . $this->sertifikatKampusMerdeka . "<br>";
-        echo "Gaji Bersih (Setelah Potongan 20%): Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
+        // Implementasi opsional jika dipanggil langsung
+    }
+
+    // GETTER KHUSUS YANG DIPANGGIL DI VIEW
+    public function getSertifikatKampusMerdeka() { 
+        return $this->sertifikatKampusMerdeka; 
     }
 }
 ?>

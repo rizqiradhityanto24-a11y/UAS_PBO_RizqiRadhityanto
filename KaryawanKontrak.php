@@ -12,19 +12,21 @@ class KaryawanKontrak extends Karyawan {
         $this->agensiPenyalur = $agensi;
     }
 
-    // OVERRIDING: Menghitung gaji sesuai logika karyawan kontrak
     public function hitungGajiBersih() {
         return $this->hariKerjaMasuk * $this->gajiDasarPerhari;
     }
 
     public function tampilkanProfilKaryawan() {
-        echo "=== PROFIL KARYAWAN KONTRAK ===<br>";
-        echo "ID: " . $this->id_karyawan . "<br>";
-        echo "Nama: " . $this->nama_karyawan . "<br>";
-        echo "Departemen: " . $this->departemen . "<br>";
-        echo "Durasi Kontrak: " . $this->durasiKontrakBulan . " Bulan<br>";
-        echo "Agensi Penyalur: " . $this->agensiPenyalur . "<br>";
-        echo "Gaji Bersih: Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
+        // Implementasi opsional jika dipanggil langsung
+    }
+
+    // GETTER KHUSUS YANG DIPANGGIL DI VIEW
+    public function getDurasiKontrakBulan() { 
+        return $this->durasiKontrakBulan; 
+    }
+    
+    public function getAgensiPenyalur() { 
+        return $this->agensiPenyalur; 
     }
 }
 ?>

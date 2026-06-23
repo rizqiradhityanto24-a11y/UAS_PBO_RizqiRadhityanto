@@ -12,19 +12,21 @@ class KaryawanTetap extends Karyawan {
         $this->opsiSahamId = $sahamId;
     }
 
-    // OVERRIDING: Menghitung gaji sesuai logika karyawan tetap
     public function hitungGajiBersih() {
         return ($this->hariKerjaMasuk * $this->gajiDasarPerhari) + $this->tunjanganKesehatan;
     }
 
     public function tampilkanProfilKaryawan() {
-        echo "=== PROFIL KARYAWAN TETAP ===<br>";
-        echo "ID: " . $this->id_karyawan . "<br>";
-        echo "Nama: " . $this->nama_karyawan . "<br>";
-        echo "Departemen: " . $this->departemen . "<br>";
-        echo "Tunjangan Kesehatan: Rp " . number_format($this->tunjanganKesehatan, 0, ',', '.') . "<br>";
-        echo "Opsi Saham ID: " . $this->opsiSahamId . "<br>";
-        echo "Gaji Bersih: Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
+        // Implementasi opsional jika dipanggil langsung
+    }
+
+    // GETTER KHUSUS YANG DIPANGGIL DI VIEW
+    public function getTunjanganKesehatan() { 
+        return $this->tunjanganKesehatan; 
+    }
+    
+    public function getOpsiSahamId() { 
+        return $this->opsiSahamId; 
     }
 }
 ?>

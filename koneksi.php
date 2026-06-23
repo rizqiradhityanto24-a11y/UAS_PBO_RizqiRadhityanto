@@ -4,7 +4,7 @@
 $host     = "localhost";
 $username = "root";
 $password = "";
-$database = "db_kepegawaian";
+$database = "db_uas_pbo_trpl1b_rizqiradhityanto"; // sesuaikan dengan file .sql yang Anda impor
 
 // Membuat koneksi menggunakan MySQLi
 $koneksi = new mysqli($host, $username, $password, $database);

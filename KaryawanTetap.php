@@ -3,7 +3,6 @@
 require_once 'Karyawan.php';
 
 class KaryawanTetap extends Karyawan {
-    // Properti tambahan khusus karyawan tetap
     private $tunjanganKesehatan;
     private $opsiSahamId;
 
@@ -13,13 +12,11 @@ class KaryawanTetap extends Karyawan {
         $this->opsiSahamId = $sahamId;
     }
 
-    // Implementasi metode abstrak hitungGajiBersih
+    // OVERRIDING: Menghitung gaji sesuai logika karyawan tetap
     public function hitungGajiBersih() {
-        // Rumus: (Hari Masuk x Gaji Dasar) + Tunjangan Kesehatan
         return ($this->hariKerjaMasuk * $this->gajiDasarPerhari) + $this->tunjanganKesehatan;
     }
 
-    // Implementasi metode abstrak tampilkanProfilKaryawan
     public function tampilkanProfilKaryawan() {
         echo "=== PROFIL KARYAWAN TETAP ===<br>";
         echo "ID: " . $this->id_karyawan . "<br>";
@@ -27,13 +24,7 @@ class KaryawanTetap extends Karyawan {
         echo "Departemen: " . $this->departemen . "<br>";
         echo "Tunjangan Kesehatan: Rp " . number_format($this->tunjanganKesehatan, 0, ',', '.') . "<br>";
         echo "Opsi Saham ID: " . $this->opsiSahamId . "<br>";
-        echo "Gaji Bersih Bulan Ini: Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
+        echo "Gaji Bersih: Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
     }
-
-    // Getter dan Setter Khusus
-    public function getTunjanganKesehatan() { return $this->tunjanganKesehatan; }
-    public function setTunjanganKesehatan($tunjangan) { $this->tunjanganKesehatan = $tunjangan; }
-    public function getOpsiSahamId() { return $this->opsiSahamId; }
-    public function setOpsiSahamId($sahamId) { $this->opsiSahamId = $sahamId; }
 }
 ?>

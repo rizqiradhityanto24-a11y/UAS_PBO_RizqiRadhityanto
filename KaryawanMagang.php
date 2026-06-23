@@ -3,8 +3,7 @@
 require_once 'Karyawan.php';
 
 class KaryawanMagang extends Karyawan {
-    // Properti tambahan khusus karyawan magang
-    private $uangSakuBulanan;
+    private $uangSakuBulanan; // Tetap ada sebagai properti, namun rumus mengacu pada plafon harian sesuai instruksi
     private $sertifikatKampusMerdeka;
 
     public function __construct($id, $nama, $dept, $hariMasuk, $gajiDasar, $uangSaku, $sertifikat) {
@@ -13,27 +12,18 @@ class KaryawanMagang extends Karyawan {
         $this->sertifikatKampusMerdeka = $sertifikat;
     }
 
-    // Implementasi metode abstrak hitungGajiBersih
+    // OVERRIDING: Menghitung gaji magang dengan potongan 20% (dikali 0.80)
     public function hitungGajiBersih() {
-        // Rumus: (Hari Masuk x Gaji Dasar) + Uang Saku Bulanan
-        return ($this->hariKerjaMasuk * $this->gajiDasarPerhari) + $this->uangSakuBulanan;
+        return $this->hariKerjaMasuk * $this->gajiDasarPerhari * 0.80;
     }
 
-    // Implementasi metode abstrak tampilkanProfilKaryawan
     public function tampilkanProfilKaryawan() {
         echo "=== PROFIL KARYAWAN MAGANG ===<br>";
         echo "ID: " . $this->id_karyawan . "<br>";
         echo "Nama: " . $this->nama_karyawan . "<br>";
         echo "Departemen: " . $this->departemen . "<br>";
-        echo "Uang Saku Bulanan: Rp " . number_format($this->uangSakuBulanan, 0, ',', '.') . "<br>";
-        echo "Sertifikat Kampus Merdeka: " . ($this->sertifikatKampusMerdeka ? "Ya" : "Tidak") . "<br>";
-        echo "Total Pendapatan Bulan Ini: Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
+        echo "Sertifikat Kampus Merdeka: " . $this->sertifikatKampusMerdeka . "<br>";
+        echo "Gaji Bersih (Setelah Potongan 20%): Rp " . number_format($this->hitungGajiBersih(), 0, ',', '.') . "<br><br>";
     }
-
-    // Getter dan Setter Khusus
-    public function getUangSakuBulanan() { return $this->uangSakuBulanan; }
-    public function setUangSakuBulanan($uangSaku) { $this->uangSakuBulanan = $uangSaku; }
-    public function getSertifikatKampusMerdeka() { return $this->sertifikatKampusMerdeka; }
-    public function setSertifikatKampusMerdeka($sertifikat) { $this->sertifikatKampusMerdeka = $sertifikat; }
 }
 ?>
